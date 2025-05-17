@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Skill Fan Out Animation</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9fafb;
+      padding: 40px;
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      background: #fff;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bản đồ kỹ năng có hiệu ứng chạy line</h1>
+  <p>FE bên trái – BE bên phải, nối 2 line, vẽ dần từng line</p>
+
+  <canvas id="skillCanvas" width="900" height="500"></canvas>
+
+  <script>
+    const canvas = document.getElementById("skillCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = 40;
+
+    const frontendSkills = ['React', 'Tailwind', 'Framer Motion', 'HTML/CSS'];
+    const backendSkills = ['Laravel', 'MySQL', 'REST API'];
+
+    // Vẽ khối cầu trung tâm
+    function drawCenter() {
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#2563eb";
+      ctx.fill();
+      ctx.fillStyle = "#fff";
+      ctx.font = "bold 14px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("Kỹ năng", centerX, centerY + 5);
+    }
+
+    // Lấy độ dài đường line giữa 2 điểm
+    function getDistance(x1, y1, x2, y2) {
+      return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    }
+
+    // Vẽ line với hiệu ứng chạy dần, dùng setLineDash
+    // t: từ 0 đến 1 (tỷ lệ hoàn thành)
+    function drawAnimatedLine(x1, y1, x2, y2, t) {
+      const length = getDistance(x1, y1, x2, y2);
+      ctx.setLineDash([length]);       // tổng dash bằng độ dài line
+      ctx.lineDashOffset = length * (1 - t);  // giảm dần offset để hiện line dần
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+      ctx.setLineDash([]); // reset
+    }
+
+    // Vẽ từng skill gồm 2 đoạn line, animation theo progress
+    function drawSkillLinesAnimated(skills, side, progress) {
+      const spacing = 50;
+      const startY = centerY - (skills.length - 1) * spacing / 2;
+
+      ctx.strokeStyle = "#6b7280";
+      ctx.lineWidth = 1.5;
+      ctx.fillStyle = "#111827";
+      ctx.font = "14px sans-serif";
+
+      for(let i = 0; i < skills.length; i++) {
+        const skill = skills[i];
+        const endY = startY + i * spacing;
+        const line1Length = 60;
+        const offsetX = 120;
+        const jointX = centerX + (side === 'left' ? -line1Length : line1Length);
+        const jointY = endY;
+        const endX = jointX + (side === 'left' ? -offsetX : offsetX);
+
+        // progress hiện tại theo skill index (0..skills.length-1)
+        const skillProgress = progress - i;
+
+        if (skillProgress <= 0) {
+          // chưa tới skill này, không vẽ
+          continue;
+        }
+
+        // Vẽ line 1 (nghiêng) với progress tối đa 0.5
+        if (skillProgress < 0.5) {
+          drawAnimatedLine(centerX, centerY, jointX, jointY, skillProgress * 2);
+        } else {
+          drawAnimatedLine(centerX, centerY, jointX, jointY, 1);
+          // Vẽ line 2 (ngang) với progress tối đa 0.5
+          const line2Progress = (skillProgress - 0.5) * 2;
+          if(line2Progress < 1) {
+            drawAnimatedLine(jointX, jointY, endX, jointY, line2Progress);
+          } else {
+            drawAnimatedLine(jointX, jointY, endX, jointY, 1);
+
+            // Vẽ dot cuối cùng và text khi line 2 vẽ xong
+            ctx.beginPath();
+            ctx.arc(endX, jointY, 4, 0, Math.PI * 2);
+            ctx.fillStyle = "#10b981";
+            ctx.fill();
+
+            ctx.textAlign = side === 'left' ? "right" : "left";
+            ctx.fillText(skill, endX + (side === 'left' ? -10 : 10), jointY + 5);
+          }
+        }
+      }
+    }
+
+    let progress = 0;
+    const maxProgress = Math.max(frontendSkills.length, backendSkills.length);
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawCenter();
+
+      drawSkillLinesAnimated(frontendSkills, 'left', progress);
+      drawSkillLinesAnimated(backendSkills, 'right', progress);
+
+      if(progress < maxProgress) {
+        progress += 0.02;
+        requestAnimationFrame(animate);
+      } else {
+        // Khi animation kết thúc, đảm bảo vẽ đầy đủ các line và label
+        drawSkillLinesAnimated(frontendSkills, 'left', maxProgress + 1);
+        drawSkillLinesAnimated(backendSkills, 'right', maxProgress + 1);
+      }
+    }
+
+    animate();
+  </script>
+
+</body>
+</html>

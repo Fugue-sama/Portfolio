@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/tailwind-config.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+  </head>
+  <body class="font-sans">
+    <div
+      id="page-cover"
+      class="fixed inset-0 bg-[#181425] translate-x-full z-50 pointer-events-none"
+    ></div>
+
+    <div
+      id="container"
+      class="page-container relative w-full h-screen max-h-full overflow-y-auto overflow-x-hidden"
+    >
+      <button
+        id="menuToggle"
+        class="fixed top-5 right-5 z-50 block md:hidden text-[#94a3b8] p-2"
+      >
+        <svg
+          class="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+
+      <nav
+        id="desktopNav"
+        class="navbarContain hidden md:flex fixed top-5 right-10 z-50 gap-10 text-[#94a3b8] text-[1.5rem]"
+      >
+        <a href="#slide1" class="nav-link hover:text-white">Start /></a>
+        <a href="#slide2" class="nav-link hover:text-white">Project /></a>
+        <a href="#slide3" class="nav-link hover:text-white">About /></a>
+        <a href="#slide4" class="nav-link hover:text-white">Contact /></a>
+      </nav>
+
+      <nav
+        id="mobileNav"
+        class="navbarContain hidden md:hidden w-full flex-col fixed z-50 bg-black/80 p-4 rounded space-y-3"
+      >
+        <a href="#slide1" class="nav-link text-white py-1 block">Start /></a>
+        <a href="#slide2" class="nav-link text-white py-1 block">Project /></a>
+        <a href="#slide3" class="nav-link text-white py-1 block">About /></a>
+        <a href="#slide4" class="nav-link text-white py-1 block">Contact /></a>
+      </nav>
+
+      <a
+        href="#slide1"
+        id="goToSlide1"
+        class="hover:scale-110 z-50 transition duration-300 ease-in-out w-fit fixed top-10 left-10 xs:text-[1rem] sm:text-[14px] text-[#94a3b8] border-[#94a3b8] border rounded mt-2 p-2"
+      >
+        【 Kyou 】
+      </a>
+      <div
+        class="line absolute h-[300%] left-10 top-1/3 line w-[1px] mr-4 bg-[#511fc7] z-20 whitespace-nowrap flex flex-col"
+      >
+        <p class="start mx-10 text-[#94a3b8] overflow-hidden select-none w-fit">
+          Start />
+          <span
+            class="start-cover wipe w-fit absolute left-0 top-0 h-full w-full bg-[#9499a9]"
+          ></span>
+        </p>
+      </div>
+      <div class="container-slide z-10">
+        <div
+          id="slide1"
+          class="slide1 opacity-0 translate-y-[150vh] transition duration-[2000ms] ease-out flex flex-col sm:flex-row w-full h-screen"
+        >
+          <div
+            class="w-full sm:w-[50%] flex items-center justify-center px-6 sm:px-20"
+          >
+            <div
+              class="sl1_text mx-1 sm:mx-10 h-full flex-col items-start flex justify-center text-left pt-[5vh] sm:pt-0"
+            >
+              <p
+                class="mb-1 my-10 text-[#94a3b8] font-bold text-[1.5rem] sm:text-[2.5rem] ml-10 text-[#fbfbfa]"
+              >
+                Xin chào, tôi là Ngọc
+              </p>
+              <div
+                class="sl1_text_desc mb-4 text-[1rem] sm:text-[1.2rem] ml-10 text-[#fbfbfa] font-bold whitespace-nowrap"
+              >
+                là lập trình viên
+                <span id="textContainer" class="inline-block w-fit"></span>
+              </div>
+              <p class="text-sm sm:text-md mb-4 text-[#94a3b8] ml-10">
+                Mời bạn xem thêm...
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="sl1_svg hidden sm:flex w-full sm:w-[50%] h-full items-center justify-center relative"
+          >
+            <dotlottie-player
+              src="https://lottie.host/af403ba6-6b7a-46e6-abaf-658150d6d184/jf2Z5dY5ow.lottie"
+              background="transparent"
+              speed="1"
+              style="width: 400px; height: 400px"
+              loop
+              autoplay
+            ></dotlottie-player>
+            <div class="fixed bottom-10 right-10 w-6 h-10">
+              <div class="relative mouse_svg w-full h-full" title="scroll">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15V9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V11"
+                    stroke="#f9fcf6"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M12 5V8"
+                    stroke="#f9fcf6"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <a
+                  href="#slide2"
+                  id="mouseSlide2"
+                  class="start mx-10 absolute right-10 text-[#94a3b8] overflow-hidden select-none w-fit"
+                >
+                  Projects /&gt;
+                  <span
+                    class="start-cover w-fit top-0 h-full w-full bg-[#9499a9] z-20 animate-wipe"
+                  ></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="slide2"
+        class="slide2 min-h-screen bg-[#181425] h-fit min-h-screen w-full px-10 py-20 text-white"
+      >
+        <div class="mb-16">
+          <h3
+            class="text-5xl opacity-[0.05] text-right font-semibold mb-6 pl-4"
+          >
+            Web
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div>
+              <div
+                class="open-detail cursor-pointer card ml-10 hover:mb-5 transition-all duration-300"
+                style="perspective: 1000px"
+              >
+                <div
+                  id="card-inner"
+                  class="relative rounded-xl w-full h-full transform-gpu transition-all duration-300 ease-out hover:shadow-[0_25px_50px_rgba(0,0,0,0.5)]"
+                  style="transform-style: preserve-3d"
+                >
+                  <div
+                    class="absolute -top-10 overflow-hidden z-30"
+                    style="
+                      transform: translateZ(40px);
+                      transform-style: preserve-3d;
+                    "
+                  >
+                    <a
+                      href="#"
+                      class="detail-text text-white hover:underline text-[1.5rem] font-bold relative"
+                    >
+                      Wiki HSR-Fandom
+                      <span
+                        class="textCoverCard absolute left-0 top-0 h-full w-full bg-white z-[-1] pointer-events-none"
+                      ></span>
+                    </a>
+                  </div>
+                  <div class="w-full h-full relative overflow-hidden">
+                    <span
+                      class="card-wipe absolute left-0 top-0 h-full w-full bg-white z-10 pointer-events-none"
+                    ></span>
+                    <img
+                      src="Images/example.webp"
+                      alt="Web project"
+                      class="rounded-lg w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                id="project-detail"
+                class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 opacity-0 scale-50 animate-none"
+              >
+                <div
+                  class="bg-white rounded-xl p-6 max-w-md w-full relative shadow-lg"
+                >
+                  <button
+                    id="close-detail"
+                    class="absolute top-2 right-5 text-2xl font-bold text-gray-600 hover:text-black"
+                  >
+                    X
+                  </button>
+                  <h2 class="text-xl font-semibold mb-4 text-black">
+                    Thông tin dự án Wiki HSR-Fandom
+                  </h2>
+                  <ul class="list-disc pl-5 space-y-2 text-gray-800">
+                    <li><strong>Ngôn ngữ:</strong> JavaScript, HTML, CSS</li>
+                    <li><strong>Framework:</strong> React, TailwindCSS</li>
+                    <li><strong>Database:</strong> MySQL</li>
+                    <li>
+                      <strong>Khác:</strong> IntersectionObserver, Animation
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-16">
+          <h3
+            class="text-5xl opacity-[0.05] text-right font-semibold mb-6 pl-4"
+          >
+            Moblie
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div>
+              <div
+                class="card open-detail w-[250px] h-[400px] cursor-pointer ml-10 hover:mb-5 transition-all duration-300"
+                style="perspective: 1000px"
+                data-link="Projects/web1.html"
+              >
+                <div
+                  id="card-inner"
+                  class="relative rounded-xl w-full h-full transform-gpu transition-all duration-300 ease-out hover:shadow-[0_25px_50px_rgba(0,0,0,0.5)]"
+                  style="transform-style: preserve-3d"
+                >
+                  <div
+                    class="absolute -top-10 overflow-hidden z-30"
+                    style="
+                      transform: translateZ(40px);
+                      transform-style: preserve-3d;
+                    "
+                  >
+                    <a
+                      href="#"
+                      class="detail-text text-white hover:underline text-[1.5rem] font-bold relative"
+                    >
+                      Wiki HSR-Fandom
+                      <span
+                        class="textCoverCard absolute left-0 top-0 h-full w-full bg-white z-[-1] pointer-events-none"
+                      ></span>
+                    </a>
+                  </div>
+
+                  <div class="w-full h-full relative overflow-hidden">
+                    <span
+                      class="card-wipe absolute left-0 top-0 h-full w-full bg-white z-10 pointer-events-none"
+                    ></span>
+                    <img
+                      src="Images/example.webp"
+                      alt="Web project"
+                      class="rounded-lg w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                id="project-detail"
+                class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 opacity-0 scale-50 animate-none"
+              >
+                <div
+                  class="bg-white rounded-xl p-6 max-w-md w-full relative shadow-lg"
+                >
+                  <button
+                    id="close-detail"
+                    class="absolute top-2 right-5 text-2xl font-bold text-gray-600 hover:text-black"
+                  >
+                    X
+                  </button>
+                  <h2 class="text-xl font-semibold mb-4 text-black">
+                    Thông tin dự án Wiki HSR-Fandom
+                  </h2>
+                  <ul class="list-disc pl-5 space-y-2 text-gray-800">
+                    <li><strong>Ngôn ngữ:</strong> JavaScript, HTML, CSS</li>
+                    <li><strong>Framework:</strong> React, TailwindCSS</li>
+                    <li><strong>Database:</strong> MySQL</li>
+                    <li>
+                      <strong>Khác:</strong> IntersectionObserver, Animation
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="slide3"
+        class="slide3 relative min-h-screen bg-[#0e0c17] w-full px-4 md:px-10 py-6 text-white font-mono text-base md:text-lg lg:text-xl z-50 md:z-10"
+        >
+        <div
+          class="relative  text-lg md:text-xl lg:text-2xl ml-5 mb-4 md:mb-6"
+        >
+          <p
+            class="start text-[#94a3b8] overflow-hidden select-none w-fit relative"
+          >
+            About />
+            <span
+              class="textCoverCard w-fit absolute left-0 top-0 h-full w-full bg-[#9499a9]"
+            ></span>
+          </p>
+        </div>
+
+        <p
+          class="mb-4 md:mb-8 text-[#94a3b8] select-none w-fit relative pl-2 md:pl-6"
+        >
+          <span class="text-[#7dd3fc]">let</span>
+          <span class="text-[#f472b6]"> About </span>
+          <span class="text-yellow-400">{</span>
+          <span
+            class="absolute left-0 top-0 h-full w-full pointer-events-none"
+          ></span>
+        </p>
+
+        <div
+          class="w-full relative md:w-[90%] lg:w-[80%] mx-auto px-4 py-5 bg-[#1e293b] shadow-md rounded-md text-slate-300 text-base md:text-lg space-y-4 overflow-hidden"
+        >
+          <span
+            class="textCover w-fit absolute left-0 top-0 h-full w-full bg-[#9499a9]"
+          ></span>
+
+          <p><span class="text-sky-400">name</span>: "Trần Như Ngọc",</p>
+          <p>
+            <span class="text-sky-400">email</span>: "thanhtanuki@gmail.com",
+          </p>
+          <p>
+            <span class="text-sky-400">education</span>:
+            <span class="text-white">{</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;time: "2019 - 2023",<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;school: "Cao Đẳng Công Nghệ Thủ Đức",<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;major: "Công nghệ thông tin"<br />
+            <span class="text-white">},</span>
+          </p>
+          <p>
+            <span class="text-sky-400">experience</span>: "Mới tốt nghiệp, có
+            kinh nghiệm thực hành qua các dự án học tập và cá nhân sử dụng
+            React, Tailwind, Laravel",
+          </p>
+          <p>
+            <span class="text-sky-400">skills</span>: [ "HTML/CSS/JavaScript",
+            "React", "Java", "Kotlin", "Bootstrap/Tailwind", "PHP",
+            "MySQL/MongoDB", "Spline", "Figma" ]
+          </p>
+        </div>
+
+        <p class="pl-2 md:pl-6 mt-6 text-[#94a3b8] select-none w-fit">
+          <span class="text-yellow-400">}</span
+          ><span class="text-white">;</span>
+        </p>
+      </div>
+
+      <div
+        id="slide4"
+        class="relative w-full w-[80%] mx-auto flex flex-col gap-6 py-10 px-4 md:px-8 lg:px-12 bg-[#100e1b] shadow-md rounded-md text-cyan-400 text-base md:text-lg lg:text-xl"
+      >
+        <div
+          class="relative z-20 text-lg md:text-xl lg:text-2xl ml-5  mb-4 "
+        >
+          <p
+            class="start text-[#94a3b8] overflow-hidden select-none w-fit text-left relative"
+          >
+            Contact />
+            <span
+              class="start-cover wipe w-fit absolute left-0 top-0 h-full w-full bg-[#9499a9]"
+            ></span>
+          </p>
+        </div>
+
+        <!-- Bọc các dòng liên lạc -->
+        <div class="flex flex-col md:flex-row md:justify-evenly gap-4 md:gap-8">
+          <!-- Phone -->
+          <div class="flex items-start md:items-center gap-3 whitespace-nowrap">
+            <span>
+              <!-- icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-cyan-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 10l1.2-1.2a1 1 0 011.4 0l.8.8 6.8-6.8a2 2 0 112.8 2.8l-6.8 6.8.8.8a1 1 0 010 1.4L10 21H3v-7z"
+                />
+              </svg>
+            </span>
+            <span>phone: "0123 456 789",</span>
+          </div>
+
+          <!-- Gmail -->
+          <div class="flex items-start md:items-center gap-3 whitespace-nowrap">
+            <span>
+              <!-- icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-cyan-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 12h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4-8H8a2 2 0 00-2 2v6a2 2 0 002 2h4m0-18v2m0 4v2m4-6h2a2 2 0 012 2v2"
+                />
+              </svg>
+            </span>
+            <span>gmail: "thanhtanuki@gmail.com"</span>
+          </div>
+
+          <!-- Github -->
+          <div class="flex items-start md:items-center gap-3 whitespace-nowrap">
+            <span>
+              <!-- icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-cyan-400"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0C5.37 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.385.6.113.793-.262.793-.583 0-.287-.01-1.047-.015-2.055-3.338.726-4.042-1.61-4.042-1.61-.546-1.39-1.333-1.76-1.333-1.76-1.09-.745.082-.73.082-.73 1.204.084 1.837 1.236 1.837 1.236 1.07 1.834 2.807 1.304 3.492.997.107-.776.418-1.305.76-1.605-2.665-.305-5.467-1.335-5.467-5.933 0-1.31.47-2.38 1.236-3.22-.124-.304-.536-1.526.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.553 3.297-1.23 3.297-1.23.655 1.65.243 2.872.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.48 5.922.43.37.823 1.096.823 2.21 0 1.596-.015 2.884-.015 3.275 0 .324.192.699.8.58C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </span>
+            <span>
+              github: "
+              <a
+                href="https://github.com/thanhtanuki"
+                target="_blank"
+                class="hover:underline"
+              >
+                github.com/thanhtanuki </a
+              >"
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/scroll.js" defer></script>
+  <script src="./js/main.js" defer></script>
+  <script src="./js/navbar.js" defer></script>
+  <script src="./js/projectDirected.js" defer></script>
+</html>

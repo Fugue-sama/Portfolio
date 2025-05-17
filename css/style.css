@@ -1,0 +1,234 @@
+html, body {
+  overflow: hidden;
+}
+body {
+  background: #100e1b;
+}
+.page-container::-webkit-scrollbar {
+  width: 2px;
+}
+.page-container::-webkit-scrollbar-track {
+  background: #000;
+}
+.page-container::-webkit-scrollbar-thumb {
+  background: #9698ad;
+}
+.page-container {
+  scroll-behavior: smooth;
+}
+.line {
+  animation: line 2s ease-in-out forwards;
+}
+@keyframes line {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.container-slide {
+  background-image: url('../Images/3084419.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  animation: bgScrollDown 5s ease-out forwards;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.container-slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../Images/bg.87635d9.webp');
+  background-size: cover;
+  background-position: center top;
+  filter: blur(5px);
+  opacity: 0.7;
+  z-index: -1;
+  animation: bgScrollDown 5s ease-out forwards;
+}
+
+@keyframes bgScrollDown {
+  0% {
+    background-position: center top;
+  }
+  100% {
+    background-position: center 40%;
+  }
+}
+
+.sl1_text.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.sl1_svg.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(20px);
+  animation: wordFadeUp 0.5s forwards;
+}
+
+@keyframes wordFadeUp {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px #511fc7, 0 0 20px #511fc7, 0 0 30px #521cd0;
+  }
+  50% {
+    box-shadow: 0 0 5px #511fc7, 0 0 10px #511fc7, 0 0 15px #521cd0;
+  }
+}
+.active {
+  color: white;
+}
+.line {
+  filter: drop-shadow(0 0 8px #908c9a);
+  transition: filter 0.3s ease;
+}
+.line::before {
+  position: absolute;
+  content: '';
+  width: .5rem;
+  height: .5rem;
+  border-radius: 100%;
+  border: 1px solid #511fc7;
+  top: -.5rem;
+  left: -.25rem;
+  background-color: #511fc7;
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+.sl1_text_desc.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.letter {
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+.fade-out {
+  opacity: 0;
+}
+
+.mouse_svg {
+  position: relative;
+  transition: transform 0.4s ease-in-out;
+}
+.mouse_svg:hover {
+  transform: translateY(-10px);
+}
+.mouse_svg::before,
+.mouse_svg::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 20px;
+  background: white;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mouse_svg::before {
+  top: -25px;
+}
+.mouse_svg::after {
+  bottom: -10px;
+}
+
+.start {
+  opacity: 0;
+  animation: startAnim 1s forwards ease-out 1s;
+  white-space: nowrap;
+  display: inline-block;
+}
+@keyframes startAnim {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.start-wrapper {
+  display: inline-block;
+  white-space: nowrap;
+}
+.start-cover {
+  animation: wipe .5s forwards ease-out 1.5s;
+  transform: translateX(0%);
+}
+@keyframes wipe {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+#goToSlide1, #navbar {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.show {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+#page-cover.animate {
+  animation: coverSlide 0.5s ease forwards;
+}
+
+@keyframes coverSlide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+.font {
+  font-family: Roboto Mono,Courier New,Courier,monospace !important;
+}
+
+@media (min-width: 500px) {
+  .custom-z-10 {
+    z-index:10 !important;
+  }
+}
